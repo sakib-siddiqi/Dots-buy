@@ -7,4 +7,4 @@ export const remove_from_cart = (payload) => ({
   payload,
 });
 
-export const clear_cart = (payload) => ({ type: ACTION.CLEAR_CART, payload });
+export const clear_cart = () => ({ type: ACTION.CLEAR_CART });

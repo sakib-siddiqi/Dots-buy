@@ -3,8 +3,10 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import ProductCard from "../../../components/common/cards/ProductCard";
 import DotsContainer from "../../../components/custom/container/DotsContainer";
+import { useSelector } from "react-redux";
 
-export default function Proeducts() {
+export default function Products() {
+  const products = useSelector((store) => store.products);
   return (
     <Box
       sx={{
@@ -15,13 +17,10 @@ export default function Proeducts() {
       }}
     >
       <DotsContainer>
-        <Grid
-          container
-          spacing={2}
-        >
-          {Array.from(Array(10)).map((_, index) => (
-            <Grid item key={index} xs={6} md={4} lg={3}>
-              <ProductCard />
+        <Grid container spacing={2}>
+          {products?.map((item, index) => (
+            <Grid item key={index} xs={12} md={4} lg={3}>
+              <ProductCard productData={item} />
             </Grid>
           ))}
         </Grid>
